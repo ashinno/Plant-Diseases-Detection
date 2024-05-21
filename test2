@@ -4,10 +4,8 @@ from torch.utils.data import DataLoader, Dataset
 from torchvision import transforms
 from PIL import Image
 from transformers import ViTForImageClassification
-from sklearn.model_selection import train_test_split
 from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
 import matplotlib.pyplot as plt
-import numpy as np
 from torch.optim import AdamW
 from torch.nn import CrossEntropyLoss
 from tqdm import tqdm
@@ -38,6 +36,7 @@ class TomatoLeafDataset(Dataset):
 # Function to load data from the dataset directory
 def load_data(data_dir):
     classes = os.listdir(data_dir)
+    classes.sort()  # Ensure the classes are sorted
     class_to_idx = {cls_name: idx for idx, cls_name in enumerate(classes)}
 
     image_paths = []
@@ -146,6 +145,11 @@ train_losses, val_losses, val_accuracies = train(model, train_loader, val_loader
 # Evaluate the model on the validation set and get predictions
 val_loss, val_accuracy, all_preds, all_labels = evaluate(model, val_loader)
 print(f'Validation Loss: {val_loss}, Validation Accuracy: {val_accuracy}')
+
+# Save the model
+model_path = 'vit_model.pth'
+torch.save(model.state_dict(), model_path)
+print(f'Model saved to {model_path}')
 
 # Plot training & validation loss and accuracy
 epochs_range = range(epochs)
