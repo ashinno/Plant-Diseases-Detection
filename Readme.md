@@ -1,6 +1,6 @@
 # Tomato leaf Disease Detection with Vision Transformer (ViT)
 
-This project aims to develop a tomato leaf disease detection system using a Vision Transformer (ViT) model. The system classifies plant diseases based on images using a custom deep learning model built on top of a pre-trained Vision Transformer. This README provides an overview of the setup, training, validation, and evaluation processes.
+This project aims to develop a tomato leaf disease detection system using a Vision Transformer (ViT) model. The system classifies plant diseases based on images using a custom deep learning model built on top of a pre-trained Vision Transformer.
 
 ## Table of Contents
 - [Introduction](#introduction)
