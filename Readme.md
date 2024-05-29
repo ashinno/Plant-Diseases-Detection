@@ -40,7 +40,6 @@ pip install torch torchvision transformers scikit-learn matplotlib seaborn
 
 The dataset used in this project is the "New Plant Diseases Dataset (Augmented)". It contains images of various plant diseases across different categories.
 
-
 ## Data Preprocessing
 
 The images are preprocessed with the following steps:
